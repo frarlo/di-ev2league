@@ -5,8 +5,35 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GestorLigaEV2"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Gestor de Equipos" Height="450" Width="800">
+    
+    <!-- Contenedor principal de la aplicación-->
     <Grid>
+        <!-- Definición de las filas del Grid -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="90*"/>
+            <RowDefinition Height="5*"/>
+        </Grid.RowDefinitions>
+        <!-- Barra de navegación de la aplicación -->
+        <Menu Grid.Row="0" HorizontalAlignment="Left">
+            <MenuItem Header="_Añadir" >
+                <MenuItem Header="_Nuevo Jugador" Click="crearJugador_Click"/>
+                <MenuItem Header="_Nuevo Equipo" Click="crearEquipo_Click"/>
+            </MenuItem>
+            <MenuItem Header="_Mostrar" >
+                <MenuItem Header="_Mostrar Jugadores" Click="mostrarJugadores_Click"/>
+                <MenuItem Header="_Mostrar Equipos" Click="mostrarEquipos_Click"/>
+            </MenuItem>
+            <MenuItem Header="_Ayuda">
+                <MenuItem Header="_Acerca de" x:Name="acercaDe" Click="acercaDe_Click"/>
+            </MenuItem>
+        </Menu>
 
+        <!-- Contenido dinámico según la página seleccionada por el usuario -->
+        <UserControl Grid.Row="1">
+            <TextBlock Text="Dummy Content"/>
+            <!-- Navegación entre páginas aquí -->
+        </UserControl>
     </Grid>
 </Window>
