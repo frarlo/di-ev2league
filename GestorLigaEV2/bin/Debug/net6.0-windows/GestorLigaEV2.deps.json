@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "GestorLigaEV2/1.0.0": {
+        "runtime": {
+          "GestorLigaEV2.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "GestorLigaEV2/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

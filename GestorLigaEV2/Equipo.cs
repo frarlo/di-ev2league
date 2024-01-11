@@ -8,7 +8,7 @@ using System.Windows.Controls;
 namespace GestorLigaEV2
 {
     // Constructor del objeto tipo Equipo
-    class Equipo
+    public class Equipo
     {
         // Atributos con getters y setters:
         public string nombre { get; set; }

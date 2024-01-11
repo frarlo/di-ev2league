@@ -8,7 +8,7 @@ namespace GestorLigaEV2
 {
 
     // Constructor del objeto tipo Jugador
-    class Jugador
+    public class Jugador
     {
         // Atributos con getters y setters:
         public string nombre { get; set; }

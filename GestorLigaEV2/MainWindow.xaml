@@ -5,15 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GestorLigaEV2"
         mc:Ignorable="d"
-        Title="Gestor de Equipos" Height="450" Width="800">
+        Title="Gestor de Equipos" Height="450" Width="800" Background="White">
     
     <!-- Contenedor principal de la aplicación-->
     <Grid>
         <!-- Definición de las filas del Grid -->
         <Grid.RowDefinitions>
             <RowDefinition Height="5*"/>
+            <RowDefinition Height="15*"/>
             <RowDefinition Height="90*"/>
-            <RowDefinition Height="5*"/>
         </Grid.RowDefinitions>
         <!-- Barra de navegación de la aplicación -->
         <Menu Grid.Row="0" HorizontalAlignment="Left">
@@ -29,11 +29,20 @@
                 <MenuItem Header="_Acerca de" x:Name="acercaDe" Click="acercaDe_Click"/>
             </MenuItem>
         </Menu>
+        <!-- StackPanel para mostrar los botones de funcionalidad de forma horizontal -->
+        <StackPanel Grid.Row ="1" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+
+            <Button x:Name="crearJugador" Click="crearJugador_Click" Content="Añadir un jugador" Margin="20,0,20,0"/>
+            <Button x:Name="crearEquipo" Click="crearEquipo_Click" Content="Añadir un equipo" Margin="20,0,20,0"/>
+            <Button x:Name="mostrarJugadores" Click="mostrarJugadores_Click" Content="Mostrar jugadores" Margin="20,0,20,0"/>
+            <Button x:Name="mostrarEquipos" Click="mostrarEquipos_Click" Content="Mostrar equipos" Margin="20,0,20,0"/>
+
+        </StackPanel>
 
         <!-- Contenido dinámico según la página seleccionada por el usuario -->
-        <UserControl Grid.Row="1">
-            <TextBlock Text="Dummy Content"/>
+        <UserControl Grid.Row="2">
             <!-- Navegación entre páginas aquí -->
+            <Frame Name="contenedorPaginas" Margin="15"/>
         </UserControl>
     </Grid>
 </Window>

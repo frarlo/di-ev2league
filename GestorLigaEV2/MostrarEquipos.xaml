@@ -9,6 +9,6 @@
       Title="Mostrar Equipos">
 
     <Grid>
-        
+        <ListBox ItemsSource="{Binding coleccionEquipos}"/>
     </Grid>
 </Page>
