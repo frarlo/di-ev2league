@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,9 +21,19 @@ namespace GestorLigaEV2
     /// </summary>
     public partial class MostrarJugadores : Page
     {
-        public MostrarJugadores()
+        // Declaramos una colección observable de equipos:
+        public ObservableCollection<Jugador>? coleccionJugadores { get; set; }
+        public MostrarJugadores(ObservableCollection<Jugador> coleccionJugadores)
         {
             InitializeComponent();
+
+
+            // Asignamos la lista recibida a la local:
+            this.coleccionJugadores = coleccionJugadores;
+
+            DataContext = this;
+
+            listaJugadores.ItemsSource = coleccionJugadores;
         }
     }
 }

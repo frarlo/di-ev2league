@@ -28,10 +28,17 @@ namespace GestorLigaEV2
         {
             InitializeComponent();
 
+
+
             // Asignamos la lista recibida a la local:
             this.coleccionEquipos = coleccionEquipos;
 
             DataContext = this;
+
+            listaEquipos.ItemsSource = coleccionEquipos;
+
+           
         }
+
     }
 }

@@ -21,15 +21,24 @@ namespace GestorLigaEV2
     public partial class MainWindow : Window
     {
 
+        /****
+         * 
+         * 
+         * 
+         *   HAY QUE PERMITIR LA EDICIÓN TAMBIÉN!!
+         * 
+         * 
+         * **/
+
         // Declaramos una colección observable de equipos:
         public ObservableCollection<Equipo> coleccionEquipos {get; set;}
         // Declaramos una colección observable de jugadores:
         public ObservableCollection<Jugador> coleccionJugadores {get; set;}
 
         // Declaramos e inicializamos tres escudos para los tres primeros equipos:
-        public Image escVal = new Image();
-        public Image escArs = new Image();
-        public Image escSab = new Image();
+        public BitmapImage escVal = new BitmapImage(new Uri("Recursos/escVal.jpg", UriKind.RelativeOrAbsolute));
+        public BitmapImage escArs = new BitmapImage(new Uri("Recursos/escArs.png", UriKind.RelativeOrAbsolute));
+        public BitmapImage escSab = new BitmapImage(new Uri("Recursos/escSab.jpg", UriKind.RelativeOrAbsolute));
 
         public MainWindow()
         {
@@ -39,9 +48,9 @@ namespace GestorLigaEV2
             coleccionEquipos = new ObservableCollection<Equipo>();
             coleccionJugadores = new ObservableCollection<Jugador>();
 
-            Equipo valenciaCF = new Equipo { nombre = "Valencia C.F.", fundacion = 1919, estadio = "Mestalla", escudo = escVal };
-            Equipo arsenalFC = new Equipo { nombre = "Arsenal F.C.", fundacion = 1886, estadio = "Emirates", escudo = escArs };
-            Equipo sabadellCE = new Equipo { nombre = "C.E. Sabadell", fundacion = 1903, estadio = "Nova Creu Alta", escudo = escSab };
+            Equipo valenciaCF = new Equipo { Nombre = "Valencia C.F.", Fundacion = 1919, Estadio = "Mestalla", Escudo = escVal };
+            Equipo arsenalFC = new Equipo { Nombre = "Arsenal F.C.", Fundacion = 1886, Estadio = "Emirates", Escudo = escArs };
+            Equipo sabadellCE = new Equipo { Nombre = "C.E. Sabadell", Fundacion = 1903, Estadio = "Nova Creu Alta", Escudo = escSab };
 
             // Añadimos los equipos creados a nuestra colección:
             coleccionEquipos.Add(valenciaCF);
@@ -49,9 +58,9 @@ namespace GestorLigaEV2
             coleccionEquipos.Add(sabadellCE);
 
             // Ahora creamos varios jugadores:
-            Jugador davidVilla = new Jugador { nombre = "David", apellidos = "Villa Sánchez", apodo = "El Guaje", edad = 42, dorsal = 7, nacionalidad = "Española", equipo = valenciaCF };
-            Jugador thierryHenry = new Jugador { nombre = "Thierry", apellidos = "Henry", apodo = "Tití", edad = 46, dorsal = 14, nacionalidad = "Francesa", equipo = arsenalFC };
-            Jugador juvenalEdjogo = new Jugador { nombre = "Juvenal", apellidos = "Edjogo Owono Montalbán", apodo = "Juve", edad = 44, dorsal = 6, nacionalidad = "Ecuatoguineano", equipo = sabadellCE };
+            Jugador davidVilla = new Jugador { Nombre = "David", Apellidos = "Villa Sánchez", Apodo = "El Guaje", Edad = 42, Dorsal = 7, Nacionalidad = "Española", Equipo = valenciaCF, Imagen = null };
+            Jugador thierryHenry = new Jugador { Nombre = "Thierry", Apellidos = "Henry", Apodo = "Tití", Edad = 46, Dorsal = 14, Nacionalidad = "Francesa", Equipo = arsenalFC, Imagen = null };
+            Jugador juvenalEdjogo = new Jugador { Nombre = "Juvenal", Apellidos = "Edjogo Owono Montalbán", Apodo = "Juve", Edad = 44, Dorsal = 6, Nacionalidad = "Ecuatoguineano", Equipo = sabadellCE, Imagen = null };
 
             // Añadimos los jugadores a nuestra colección:
             coleccionJugadores.Add(davidVilla);
@@ -81,6 +90,10 @@ namespace GestorLigaEV2
         private void mostrarJugadores_Click(object sender, RoutedEventArgs e)
         {
 
+            MostrarJugadores vistaMuestraJugadores = new MostrarJugadores(coleccionJugadores);
+
+            contenedorPaginas.Content = vistaMuestraJugadores;
+
         }
 
         // Click en la opción de Mostrar Equipos:
@@ -89,8 +102,9 @@ namespace GestorLigaEV2
             // TODO:
 
             // Inicializamos la vista:
-            //new MostrarEquipos(coleccionEquipos);
-            // Cambiamos el frame:
+            MostrarEquipos vistaMuestraEquipos = new MostrarEquipos(coleccionEquipos);
+            // Cambiamos el ContentTemplate
+            contenedorPaginas.Content = vistaMuestraEquipos;
 
         }
 

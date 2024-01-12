@@ -8,7 +8,28 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Mostrar Jugadores">
 
+    <!-- StackPanel que nos proporciona un DataGrid editable según lo visto en Clase -->
     <Grid>
-        
+        <DataGrid x:Name="listaJugadores" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <!-- Para los campos típicos ponemos un DataGridTextColumn con el Header y el Binding -->
+                <DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}" Width="1*"/>
+                <DataGridTextColumn Header="Apellidos" Binding="{Binding Apellidos}" Width="2*"/>
+                <DataGridTextColumn Header="Apodo" Binding="{Binding Apodo}" Width="1*"/>
+                <DataGridTextColumn Header="Edad" Binding="{Binding Edad}" Width="0.5*"/>
+                <DataGridTextColumn Header="Dorsal" Binding="{Binding Dorsal}" Width="0.5*"/>
+                <DataGridTextColumn Header="Nacionalidad" Binding="{Binding Nacionalidad}" Width="1*"/>
+                <DataGridTextColumn Header="Equipo" Binding="{Binding Equipo.Nombre}" Width="1*"/>
+                <!-- En caso del Escudo, al ser una imagen hacemos un Template-->
+                <DataGridTemplateColumn Header="Imagen" Width="2*">
+                    <!-- Mostramos el Escudo -->
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Image Source="{Binding Imagen}" Width="75" Height="75"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </Page>

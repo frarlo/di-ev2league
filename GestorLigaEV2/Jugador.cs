@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
+using System.Windows.Media.Imaging;
 
 namespace GestorLigaEV2
 {
@@ -11,13 +13,14 @@ namespace GestorLigaEV2
     public class Jugador
     {
         // Atributos con getters y setters:
-        public string nombre { get; set; }
-        public string apellidos { get; set; }
-        public string apodo { get; set; }
-        public int edad {  get; set; }
-        public int dorsal {  get; set; }
-        public string nacionalidad { get; set; }
-        public Equipo equipo { get; set; }
+        public string? Nombre { get; set; }
+        public string? Apellidos { get; set; }
+        public string? Apodo { get; set; }
+        public int Edad {  get; set; }
+        public int Dorsal {  get; set; }
+        public string? Nacionalidad { get; set; }
+        public Equipo? Equipo { get; set; }
+        public BitmapImage? Imagen { get; set; }
 
     }
 }

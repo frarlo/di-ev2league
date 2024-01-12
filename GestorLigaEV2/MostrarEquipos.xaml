@@ -7,8 +7,27 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Mostrar Equipos">
-
+    
+    <!-- StackPanel que nos proporciona un DataGrid editable según lo visto en Clase -->
     <Grid>
-        <ListBox ItemsSource="{Binding coleccionEquipos}"/>
+        <ScrollViewer>
+        <DataGrid x:Name="listaEquipos" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <!-- Para los campos típicos ponemos un DataGridTextColumn con el Header y el Binding -->
+                <DataGridTextColumn Header="Equipo" Binding="{Binding Nombre}" Width="2*"/>
+                <DataGridTextColumn Header="Año de fundación" Binding="{Binding Fundacion}" Width="1*"/>
+                <DataGridTextColumn Header="Estadio" Binding="{Binding Estadio}" Width="2*"/>
+                <!-- En caso del Escudo, al ser una imagen hacemos un Template-->
+                <DataGridTemplateColumn Header="Escudo" Width="2*">
+                    <!-- Mostramos el Escudo -->
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Image Source="{Binding Escudo}" Width="75" Height="75"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        </ScrollViewer>
     </Grid>
 </Page>

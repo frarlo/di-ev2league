@@ -42,7 +42,7 @@
         <!-- Contenido dinámico según la página seleccionada por el usuario -->
         <UserControl Grid.Row="2">
             <!-- Navegación entre páginas aquí -->
-            <Frame Name="contenedorPaginas" Margin="15"/>
+            <Frame Name="contenedorPaginas" Margin="15" NavigationUIVisibility="Hidden"/>
         </UserControl>
     </Grid>
 </Window>
