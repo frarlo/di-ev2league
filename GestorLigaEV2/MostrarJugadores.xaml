@@ -21,11 +21,11 @@
                 <DataGridTextColumn Header="Nacionalidad" Binding="{Binding Nacionalidad}" Width="1*"/>
                 <DataGridTextColumn Header="Equipo" Binding="{Binding Equipo.Nombre}" Width="1*"/>
                 <!-- En caso del Escudo, al ser una imagen hacemos un Template-->
-                <DataGridTemplateColumn Header="Imagen" Width="2*">
+                <DataGridTemplateColumn Header="Imagen" Width="1*">
                     <!-- Mostramos el Escudo -->
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Image Source="{Binding Imagen}" Width="75" Height="75"/>
+                            <Image Source="{Binding Imagen}" Width="50" Height="50"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>

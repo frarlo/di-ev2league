@@ -37,8 +37,16 @@ namespace GestorLigaEV2
 
         // Declaramos e inicializamos tres escudos para los tres primeros equipos:
         public BitmapImage escVal = new BitmapImage(new Uri("Recursos/escVal.jpg", UriKind.RelativeOrAbsolute));
-        public BitmapImage escArs = new BitmapImage(new Uri("Recursos/escArs.png", UriKind.RelativeOrAbsolute));
+        public BitmapImage escArs = new BitmapImage(new Uri("Recursos/escArs.jpg", UriKind.RelativeOrAbsolute));
         public BitmapImage escSab = new BitmapImage(new Uri("Recursos/escSab.jpg", UriKind.RelativeOrAbsolute));
+
+        // Lo mismo para las imágenes de los jugadores:
+        public BitmapImage fotoVilla = new BitmapImage(new Uri("Recursos/davVilla.jpg", UriKind.RelativeOrAbsolute));
+        public BitmapImage fotoHenry = new BitmapImage(new Uri("Recursos/thiHenry.jpg", UriKind.RelativeOrAbsolute));
+        public BitmapImage fotoJuvenal = new BitmapImage(new Uri("Recursos/juveEdjogo.jpg", UriKind.RelativeOrAbsolute));
+
+        // Variable para almacenar la vista actual:
+        FrameworkElement vistaActual;
 
         public MainWindow()
         {
@@ -58,9 +66,9 @@ namespace GestorLigaEV2
             coleccionEquipos.Add(sabadellCE);
 
             // Ahora creamos varios jugadores:
-            Jugador davidVilla = new Jugador { Nombre = "David", Apellidos = "Villa Sánchez", Apodo = "El Guaje", Edad = 42, Dorsal = 7, Nacionalidad = "Española", Equipo = valenciaCF, Imagen = null };
-            Jugador thierryHenry = new Jugador { Nombre = "Thierry", Apellidos = "Henry", Apodo = "Tití", Edad = 46, Dorsal = 14, Nacionalidad = "Francesa", Equipo = arsenalFC, Imagen = null };
-            Jugador juvenalEdjogo = new Jugador { Nombre = "Juvenal", Apellidos = "Edjogo Owono Montalbán", Apodo = "Juve", Edad = 44, Dorsal = 6, Nacionalidad = "Ecuatoguineano", Equipo = sabadellCE, Imagen = null };
+            Jugador davidVilla = new Jugador { Nombre = "David", Apellidos = "Villa Sánchez", Apodo = "El Guaje", Edad = 42, Dorsal = 7, Nacionalidad = "Española", Equipo = valenciaCF, Imagen = fotoVilla };
+            Jugador thierryHenry = new Jugador { Nombre = "Thierry", Apellidos = "Henry", Apodo = "Tití", Edad = 46, Dorsal = 14, Nacionalidad = "Francesa", Equipo = arsenalFC, Imagen = fotoHenry };
+            Jugador juvenalEdjogo = new Jugador { Nombre = "Juvenal", Apellidos = "Edjogo Owono Montalbán", Apodo = "Juve", Edad = 44, Dorsal = 6, Nacionalidad = "Ecuatoguineano", Equipo = sabadellCE, Imagen = fotoJuvenal };
 
             // Añadimos los jugadores a nuestra colección:
             coleccionJugadores.Add(davidVilla);
@@ -83,16 +91,34 @@ namespace GestorLigaEV2
         // Click en la opción de Crear Equipo:
         private void crearEquipo_Click(object sender, RoutedEventArgs e)
         {
+            // Cerramos la vista que haya abierta:
+            CerrarVistaActual();
+
+            // Creamos la nueva vista objetivo:
+            CreacionEquipo vistaCreacionEquipo = new CreacionEquipo(coleccionEquipos);
+
+            // Asignamos la nueva vista a nuestro contenedor:
+            contenedorPaginas.Content = vistaCreacionEquipo;
+
+            // Actualizamos la variable de vista actual:
+            vistaActual = vistaCreacionEquipo;
 
         }
 
         // Click en la opción de Mostrar Jugadores:
         private void mostrarJugadores_Click(object sender, RoutedEventArgs e)
         {
+            // Cerramos la vista que haya abierta:
+            CerrarVistaActual();
 
+            // Creamos la nueva vista objetivo:
             MostrarJugadores vistaMuestraJugadores = new MostrarJugadores(coleccionJugadores);
 
+            // Asignamos la nueva vista a nuestro contenedor:
             contenedorPaginas.Content = vistaMuestraJugadores;
+
+            // Actualizamos la variable de vista actual:
+            vistaActual = vistaMuestraJugadores;
 
         }
 
@@ -101,10 +127,17 @@ namespace GestorLigaEV2
         {
             // TODO:
 
-            // Inicializamos la vista:
+            // Cerramos la vista que haya abierta:
+            CerrarVistaActual();
+
+            // Creamos al nueva vista objetivo:
             MostrarEquipos vistaMuestraEquipos = new MostrarEquipos(coleccionEquipos);
-            // Cambiamos el ContentTemplate
+
+            // Asignamos la nueva vista a nuestro contenedor:
             contenedorPaginas.Content = vistaMuestraEquipos;
+
+            // Actualizamos la variable de vista actual:
+            vistaActual = vistaMuestraEquipos;
 
         }
 
@@ -112,6 +145,21 @@ namespace GestorLigaEV2
         private void acercaDe_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        // Método para cerrar la vista actual y ahorrar recursos:
+        private void CerrarVistaActual()
+        {
+            // Comprobamos que la vista no sea null:
+            if (vistaActual != null)
+            {
+                // Si es desechable...
+                if (vistaActual is IDisposable disposable)
+                {
+                    // La desecha.
+                    disposable.Dispose();
+                }
+            }
         }
     }
 }

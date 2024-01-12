@@ -22,7 +22,7 @@
                     <!-- Mostramos el Escudo -->
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Image Source="{Binding Escudo}" Width="75" Height="75"/>
+                            <Image Source="{Binding Escudo}" Width="50" Height="50"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>

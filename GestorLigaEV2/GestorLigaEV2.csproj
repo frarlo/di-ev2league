@@ -8,19 +8,31 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Recursos\escArs.png" />
+    <None Remove="Recursos\davVilla.jpg" />
+    <None Remove="Recursos\escArs.jpg" />
     <None Remove="Recursos\escSab.jpg" />
     <None Remove="Recursos\escVal.jpg" />
+    <None Remove="Recursos\juveEdjogo.jpg" />
+    <None Remove="Recursos\thiHenry.jpg" />
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Recursos\escArs.png">
+    <Resource Include="Recursos\davVilla.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Recursos\escArs.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Recursos\escSab.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Recursos\escVal.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Recursos\juveEdjogo.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Recursos\thiHenry.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>
