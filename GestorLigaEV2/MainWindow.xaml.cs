@@ -66,9 +66,9 @@ namespace GestorLigaEV2
             coleccionEquipos.Add(sabadellCE);
 
             // Ahora creamos varios jugadores:
-            Jugador davidVilla = new Jugador { Nombre = "David", Apellidos = "Villa Sánchez", Apodo = "El Guaje", Edad = 42, Dorsal = 7, Nacionalidad = "Española", Equipo = valenciaCF, Imagen = fotoVilla };
-            Jugador thierryHenry = new Jugador { Nombre = "Thierry", Apellidos = "Henry", Apodo = "Tití", Edad = 46, Dorsal = 14, Nacionalidad = "Francesa", Equipo = arsenalFC, Imagen = fotoHenry };
-            Jugador juvenalEdjogo = new Jugador { Nombre = "Juvenal", Apellidos = "Edjogo Owono Montalbán", Apodo = "Juve", Edad = 44, Dorsal = 6, Nacionalidad = "Ecuatoguineano", Equipo = sabadellCE, Imagen = fotoJuvenal };
+            Jugador davidVilla = new Jugador { Nombre = "David", Apellidos = "Villa Sánchez", Apodo = "El Guaje", Edad = 42, Dorsal = 7, Nacionalidad = "Española", EquipoSel = valenciaCF, Imagen = fotoVilla };
+            Jugador thierryHenry = new Jugador { Nombre = "Thierry", Apellidos = "Henry", Apodo = "Tití", Edad = 46, Dorsal = 14, Nacionalidad = "Francesa", EquipoSel = arsenalFC, Imagen = fotoHenry };
+            Jugador juvenalEdjogo = new Jugador { Nombre = "Juvenal", Apellidos = "Edjogo Owono Montalbán", Apodo = "Juve", Edad = 44, Dorsal = 6, Nacionalidad = "Ecuatoguineano", EquipoSel = sabadellCE, Imagen = fotoJuvenal };
 
             // Añadimos los jugadores a nuestra colección:
             coleccionJugadores.Add(davidVilla);
@@ -85,6 +85,17 @@ namespace GestorLigaEV2
         // Click en la opción de Crear Jugador:
         private void crearJugador_Click(object sender, RoutedEventArgs e)
         {
+            // Cerramos la vista que haya abierta:
+            CerrarVistaActual();
+
+            // Creamos la nueva vista objetivo:
+            CreacionJugador vistaCreacionJugador = new CreacionJugador(coleccionJugadores, coleccionEquipos);
+
+            // Asignamos la nueva vista a nuestro contenedor:
+            contenedorPaginas.Content = vistaCreacionJugador;
+
+            // Actualizamos la variable de vista actual:
+            vistaActual = vistaCreacionJugador;
 
         }
 
@@ -112,7 +123,7 @@ namespace GestorLigaEV2
             CerrarVistaActual();
 
             // Creamos la nueva vista objetivo:
-            MostrarJugadores vistaMuestraJugadores = new MostrarJugadores(coleccionJugadores);
+            MostrarJugadores vistaMuestraJugadores = new MostrarJugadores(coleccionJugadores, coleccionEquipos);
 
             // Asignamos la nueva vista a nuestro contenedor:
             contenedorPaginas.Content = vistaMuestraJugadores;

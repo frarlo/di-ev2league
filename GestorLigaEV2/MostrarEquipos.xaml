@@ -11,7 +11,7 @@
     <!-- StackPanel que nos proporciona un DataGrid editable según lo visto en Clase -->
     <Grid>
         <ScrollViewer>
-        <DataGrid x:Name="listaEquipos" AutoGenerateColumns="False">
+        <DataGrid x:Name="listaEquipos" AutoGenerateColumns="False" CanUserAddRows="False">
             <DataGrid.Columns>
                 <!-- Para los campos típicos ponemos un DataGridTextColumn con el Header y el Binding -->
                 <DataGridTextColumn Header="Equipo" Binding="{Binding Nombre}" Width="2*"/>

@@ -4,12 +4,41 @@
              xmlns:local="clr-namespace:GestorLigaEV2"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         <!-- Declaramos aquí los estilos para que hereden los botones del programa -->
+        <!-- ControlTemplate para los botones de la aplicación -->
+        <ControlTemplate x:Key="templateButton" TargetType="Button">
+            <Border x:Name="customBorder" Background="#1F85DE"
+                    BorderBrush="#0e3860"
+                    BorderThickness="3"
+                    CornerRadius="10">
+                <TextBlock Text="{TemplateBinding Content}"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"/>
+            </Border>
+            <!-- Trigger para los botones - Efecto hover -->
+            <ControlTemplate.Triggers>
+                <!-- Cuando el ratón está encima -->
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter TargetName="customBorder" Property="BorderThickness" Value="4" />
+                    <Setter TargetName="customBorder" Property="BorderBrush" Value="#DE781F" />
+                </Trigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
+         <!-- Declaramos aquí también algunos estilos para que hereden los botones del programa -->
         <Style TargetType="Button">
-            <Setter Property="Background" Value="lightBlue"/>
             <Setter Property="Foreground" Value="Black"/>
             <Setter Property="FontSize" Value="14"/>
-            <Setter Property="FontFamily" Value="Microsoft YaHei"/>
+            <Setter Property="FontFamily" Value="Microsoft YaHei UI"/>
+            <Setter Property="Margin" Value="10,10,10,10"/>
+        </Style>
+        <!-- Lo mismo para los TextBox -->
+        <Style TargetType="TextBox">
+            <Setter Property="Height" Value="20"/>
+        </Style>
+        <Style TargetType="ComboBox">
+            <Setter Property="Height" Value="20"/>
+        </Style>
+        <Style TargetType="TextBlock">
+            <Setter Property="VerticalAlignment" Value="Center"/>
         </Style>
     </Application.Resources>
 </Application>

@@ -5,44 +5,36 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GestorLigaEV2"
         mc:Ignorable="d"
-        Title="Gestor de Equipos" Height="600" Width="800" Background="White" ResizeMode="CanResizeWithGrip">
-    
+        Title="Gestor de Equipos" MinHeight="600" MinWidth="800" Background="White">
+
     <!-- Contenedor principal de la aplicación-->
     <Grid>
         <!-- Definición de las filas del Grid -->
         <Grid.RowDefinitions>
-            <RowDefinition Height="5*"/>
-            <RowDefinition Height="15*"/>
-            <RowDefinition Height="90*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
-        <!-- Barra de navegación de la aplicación -->
-        <Menu Grid.Row="0" HorizontalAlignment="Left">
-            <MenuItem Header="_Añadir" >
-                <MenuItem Header="_Nuevo Jugador" Click="crearJugador_Click"/>
-                <MenuItem Header="_Nuevo Equipo" Click="crearEquipo_Click"/>
-            </MenuItem>
-            <MenuItem Header="_Mostrar" >
-                <MenuItem Header="_Mostrar Jugadores" Click="mostrarJugadores_Click"/>
-                <MenuItem Header="_Mostrar Equipos" Click="mostrarEquipos_Click"/>
-            </MenuItem>
-            <MenuItem Header="_Ayuda">
-                <MenuItem Header="_Acerca de" x:Name="acercaDe" Click="acercaDe_Click"/>
-            </MenuItem>
-        </Menu>
+        <!-- Definición de las columnas del Grid -->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20*"/>
+            <ColumnDefinition Width="80*"/>
+        </Grid.ColumnDefinitions>
         <!-- StackPanel para mostrar los botones de funcionalidad de forma horizontal -->
-        <StackPanel Grid.Row ="1" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-
-            <Button x:Name="crearJugador" Click="crearJugador_Click" Content="Añadir un jugador" Margin="20,0,20,0"/>
-            <Button x:Name="crearEquipo" Click="crearEquipo_Click" Content="Añadir un equipo" Margin="20,0,20,0"/>
-            <Button x:Name="mostrarJugadores" Click="mostrarJugadores_Click" Content="Mostrar jugadores" Margin="20,0,20,0"/>
-            <Button x:Name="mostrarEquipos" Click="mostrarEquipos_Click" Content="Mostrar equipos" Margin="20,0,20,0"/>
-
-        </StackPanel>
+        <TextBlock Text="Gestor de Equipos" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Microsoft YaHei UI" FontSize="16" />
+        <Button x:Name="crearJugador" Template="{StaticResource templateButton}" Click="crearJugador_Click" Content="Añadir un jugador" Grid.Row="1" Grid.Column="0"/>
+        <Button x:Name="crearEquipo" Template="{StaticResource templateButton}" Click="crearEquipo_Click" Content="Añadir un equipo" Grid.Row="2" Grid.Column="0"/>
+        <Button x:Name="mostrarJugadores" Template="{StaticResource templateButton}" Click="mostrarJugadores_Click" Content="Mostrar jugadores" Grid.Row="3" Grid.Column="0"/>
+        <Button x:Name="mostrarEquipos" Template="{StaticResource templateButton}" Click="mostrarEquipos_Click" Content="Mostrar equipos" Grid.Row="4" Grid.Column="0"/>
+        <Button x:Name="acercaDe" Template="{StaticResource templateButton}" Click="acercaDe_Click" Content="Autoría" Grid.Row="5" Grid.Column="0"/>
 
         <!-- Contenido dinámico según la página seleccionada por el usuario -->
-        <UserControl Grid.Row="2">
+        <UserControl Grid.Row="0" Grid.Column="1" Grid.RowSpan="6">
             <!-- Navegación entre páginas aquí -->
-            <Frame Name="contenedorPaginas" Margin="15" NavigationUIVisibility="Hidden"/>
+            <Frame Name="contenedorPaginas" Margin="5" NavigationUIVisibility="Hidden"/>
         </UserControl>
     </Grid>
 </Window>

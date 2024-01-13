@@ -10,16 +10,28 @@
 
     <!-- StackPanel que nos proporciona un DataGrid editable según lo visto en Clase -->
     <Grid>
-        <DataGrid x:Name="listaJugadores" AutoGenerateColumns="False">
+        <!-- El DataGrid generará sólamente los datos que existan y se podrán editar sobre ellos -->
+        <DataGrid x:Name="listaJugadores" AutoGenerateColumns="False" CanUserAddRows="False">
             <DataGrid.Columns>
                 <!-- Para los campos típicos ponemos un DataGridTextColumn con el Header y el Binding -->
                 <DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}" Width="1*"/>
-                <DataGridTextColumn Header="Apellidos" Binding="{Binding Apellidos}" Width="2*"/>
+                <DataGridTextColumn Header="Apellidos" Binding="{Binding Apellidos}" Width="1.5*" CanUserResize="True"/>
                 <DataGridTextColumn Header="Apodo" Binding="{Binding Apodo}" Width="1*"/>
                 <DataGridTextColumn Header="Edad" Binding="{Binding Edad}" Width="0.5*"/>
                 <DataGridTextColumn Header="Dorsal" Binding="{Binding Dorsal}" Width="0.5*"/>
                 <DataGridTextColumn Header="Nacionalidad" Binding="{Binding Nacionalidad}" Width="1*"/>
-                <DataGridTextColumn Header="Equipo" Binding="{Binding Equipo.Nombre}" Width="1*"/>
+                <!-- El equipo no puede ser directamente editable en texto, hay que seleccionarlo-->
+                <DataGridTemplateColumn Header="Equipo" Width="2*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <!-- Asignamos un ComboBox donde el usuario podrá seleccionar el Equipo entre los existentes-->
+                            <ComboBox ItemsSource="{Binding DataContext.coleccionEquipos, RelativeSource={RelativeSource AncestorType={x:Type Page}}}"
+                                      DisplayMemberPath="Nombre"
+                                      SelectedItem="{Binding EquipoSel, Mode=TwoWay}"/>
+                            <!-- TwoWay para que se actualicen mutuamente -->
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
                 <!-- En caso del Escudo, al ser una imagen hacemos un Template-->
                 <DataGridTemplateColumn Header="Imagen" Width="1*">
                     <!-- Mostramos el Escudo -->

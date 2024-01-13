@@ -27,11 +27,11 @@
         <TextBlock Grid.Row="2" Grid.Column="0" Text="Año de la Fundación" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         <TextBox x:Name="añoFundacion" Grid.Row="2" Grid.Column="1" Margin="5,10,5,10"/>
         <TextBlock Grid.Row="3" Grid.Column="0" Text="Nombre del Estadio" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-        <TextBox x:Name="estadioEquipo" Grid.Row="3" Grid.Column="1" Margin="5,10,5,10"/>
+        <TextBox x:Name="estadioEquipo" Grid.Row="3" Grid.Column="1" Margin="10,20,10,10"/>
         <TextBlock Grid.Row="4" Grid.Column="0" Text="Escudo del Equipo" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-        <Button Content="Seleccionar archivo..." Grid.Row="4" Grid.Column="1" Margin="5,10,5,10" Click="SeleccionarArchivo_Click"/>
-        <Button Content="Borrar campos" Grid.Row="5" Grid.Column="0" Click="BorrarCampos_Click" HorizontalAlignment="Center" />
-        <Button Content="Crear equipo" Grid.Row="5" Grid.Column="1" HorizontalAlignment="Center" Click="CrearEquipo_Click" />
+        <Button Content="Seleccionar archivo..." Template="{StaticResource templateButton}" Grid.Row="4" Grid.Column="1" Margin="5,10,5,10" Click="SeleccionarArchivo_Click"/>
+        <Button Content="Borrar campos" Template="{StaticResource templateButton}" Grid.Row="5" Grid.Column="0" Click="BorrarCampos_Click" />
+        <Button Content="Crear equipo" Template="{StaticResource templateButton}" Grid.Row="5" Grid.Column="1" Click="CrearEquipo_Click" />
 
     </Grid>
 </Page>
