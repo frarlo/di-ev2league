@@ -107,16 +107,35 @@ namespace GestorLigaEV2
             {
                 // Accedemos a la ruta del archivo seleccionado:
                 rutaArchivoSeleccionado = openFileDialog.FileName;
-
-                // Copiamos a nuestro directorio de imágenes:
-
-                // Redimensionamos:
-
-                // La asignamos a nuestra variable:
-
-
             }
 
+        }
+
+        /* Método para implementar PreviewTextInput https://stackoverflow.com/q/1226128/14441036
+        Nos permite comprobar lo que el usuario introduce en el TextBox y obviarlo si es necesario
+        Aquí lo hemos utilizado tanto para obviar cadenas de letras en los TextBox que van a recibir
+        un valor numérico como para los que reciben solamente una cadena y no números */
+        private void TextBoxNumber(object sender, TextCompositionEventArgs e)
+        {
+            // Accedemos a lo introducido:
+            String input = e.Text;
+            // Si no es un dígito...
+            if (!input.All(char.IsDigit))
+            {
+                // Lo manejamos (no dejamos que se introduzca)
+                e.Handled = true;
+            }
+        }
+
+        private void TextBoxChar(object sender, TextCompositionEventArgs e)
+        {
+            String input = e.Text;
+            // Si es un dígito...
+            if (input.All(char.IsDigit))
+            {
+                // Lo manejamos de igual forma.
+                e.Handled = true;
+            }
         }
     }
 }
