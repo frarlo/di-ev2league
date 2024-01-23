@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:GestorLigaEV2"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="Mostrar Equipos">
+      Title="Mostrar Equipos" >
     
     <!-- StackPanel que nos proporciona un DataGrid editable según lo visto en Clase -->
     <Grid>

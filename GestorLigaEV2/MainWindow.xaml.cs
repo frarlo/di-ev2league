@@ -155,7 +155,7 @@ namespace GestorLigaEV2
         // Click en la autoría:
         private void acercaDe_Click(object sender, RoutedEventArgs e)
         {
-
+            MessageBox.Show("Autor: Paco Armenta López para la asignatura Desarrollo de Interfaces", "Autoría", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
         // Método para cerrar la vista actual y ahorrar recursos:
