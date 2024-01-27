@@ -56,13 +56,6 @@ namespace GestorLigaEV2
                 // Accedemos a la ruta del archivo seleccionado:
                 rutaArchivoSeleccionado = openFileDialog.FileName;
 
-                // Copiamos a nuestro directorio de imágenes:
-
-                // Redimensionamos:
-
-                // La asignamos a nuestra variable:
-
-
             }
         }
 

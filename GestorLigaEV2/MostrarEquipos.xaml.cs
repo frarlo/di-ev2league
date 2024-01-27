@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -22,7 +23,10 @@ namespace GestorLigaEV2
     public partial class MostrarEquipos : Page
     {
         // Declaramos una colección observable de equipos:
-        public ObservableCollection<Equipo> coleccionEquipos { get; set; }
+        public ObservableCollection<Equipo>? ColeccionEquipos { get; set; }
+
+        // Declaramos aquí la ruta de la imagen por si el usuario quiere editar alguna idem:
+        string rutaArchivoSeleccionado;
 
         public MostrarEquipos(ObservableCollection<Equipo> coleccionEquipos)
         {
@@ -31,7 +35,7 @@ namespace GestorLigaEV2
 
 
             // Asignamos la lista recibida a la local:
-            this.coleccionEquipos = coleccionEquipos;
+            this.ColeccionEquipos = coleccionEquipos;
 
             DataContext = this;
 
@@ -40,5 +44,56 @@ namespace GestorLigaEV2
            
         }
 
+        // Botón para recoger el click de eliminar:
+        private void botonEliminar_Click(object sender, RoutedEventArgs e)
+        {
+            // Comprobamos si hay algún equipo seleccionado:
+            if(listaEquipos.SelectedItem != null)
+            {
+                // Obtenemos el equipo seleccionado de nuestro DataGrid:
+                Equipo equipoSeleccionado = (Equipo)listaEquipos.SelectedItem;
+
+                // Lo eliminamos:
+                ColeccionEquipos.Remove(equipoSeleccionado);
+
+                // Actualizamos la vista:
+                listaEquipos.Items.Refresh();
+            }
+        }
+
+        // Botón que recoge la edición del escudo
+        private void botonCambiarImagen_Click(object sender, RoutedEventArgs e)
+        {
+            // Comprobamos que se haya seleccionado algún elemento:
+            if (listaEquipos.SelectedItem != null)
+            {
+                // Hay alguno, así que scamos el jugador seleccionado:
+                Equipo equipoSeleccionado = (Equipo)listaEquipos.SelectedItem;
+
+                // Pedimos la nueva imagen:
+                // Inicializamos un dialogo de archivo:
+                OpenFileDialog openFileDialog = new OpenFileDialog();
+
+                // Título y filtro:
+                openFileDialog.Title = "Selecciona una imagen";
+                openFileDialog.Filter = "Imagen jpg (*.jpg)|*.jpg|Imagen png (*.png)|*.png";
+
+                // Inicializamos un valor boooleano al mostrar el diálogo:
+                bool? resultado = openFileDialog.ShowDialog();
+
+                // Si el usuario introduce un archivo correcto...
+                if (resultado == true)
+                {
+                    // Accedemos a la ruta del archivo seleccionado:
+                    rutaArchivoSeleccionado = openFileDialog.FileName;
+
+                    // Cambiamos la imagen del jugador:
+                    equipoSeleccionado.Escudo = new BitmapImage(new Uri(rutaArchivoSeleccionado, UriKind.RelativeOrAbsolute));
+
+                    // Y finalmente refrescamos la vista para que se muestre:
+                    listaEquipos.Items.Refresh();
+                }
+            }
+        }
     }
 }

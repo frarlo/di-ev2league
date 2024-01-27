@@ -27,6 +27,7 @@ namespace GestorLigaEV2
 
         // Declaramos aquí la ruta de la imagen:
         string rutaArchivoSeleccionado;
+
         public CreacionEquipo(ObservableCollection<Equipo> coleccionEquipos)
         {
             InitializeComponent();

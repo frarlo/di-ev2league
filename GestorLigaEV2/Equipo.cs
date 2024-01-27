@@ -1,15 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Controls;
+﻿using System.ComponentModel;
 using System.Windows.Media.Imaging;
 
 namespace GestorLigaEV2
 {
-    // Constructor del objeto tipo Equipo
+    // Constructor del objeto tipo Equipo con la implementación de "INotifyPropertyChanges" de Data Binding:
     public class Equipo : INotifyPropertyChanged
     {
         
@@ -19,8 +13,10 @@ namespace GestorLigaEV2
         public string? Estadio { get; set; }
         public BitmapImage? Escudo { get; set; }
 
+        // Declaración del PropertyChanged:
         public event PropertyChangedEventHandler? PropertyChanged;
 
+        // Si cambia alguna propiedad lanza el aviso:
         protected virtual void OnPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));

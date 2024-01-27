@@ -6,28 +6,28 @@
       xmlns:local="clr-namespace:GestorLigaEV2"
       mc:Ignorable="d" 
       d:DesignHeight="400" d:DesignWidth="700"
-      Title="Creacion Equipo" Background="DarkSlateGray">
+      Title="Creacion Equipo" >
 
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"/>
-            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"/>
             <RowDefinition Height="2*"/>
             <RowDefinition Height="2*"/>
             <RowDefinition Height="2*"/>
-            <RowDefinition Height="2*"/>
+            <RowDefinition Height="1*"/>
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
         <TextBlock Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" Text="Introduce los datos del Equipo a crear" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
         <TextBlock Grid.Row="1" Grid.Column="0" Text="Nombre del Equipo" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-        <TextBox x:Name="nombreEquipo" PreviewTextInput="TextBoxChar" Grid.Row="1" Grid.Column="1" Margin="5,10,5,10"/>
+        <TextBox x:Name="nombreEquipo" PreviewTextInput="TextBoxChar" Grid.Row="1" Grid.Column="1"/>
         <TextBlock Grid.Row="2" Grid.Column="0" Text="Año de la Fundación" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-        <TextBox x:Name="añoFundacion" PreviewTextInput="TextBoxNumber" Grid.Row="2" Grid.Column="1" Margin="5,10,5,10"/>
+        <TextBox x:Name="añoFundacion" PreviewTextInput="TextBoxNumber" Grid.Row="2" Grid.Column="1"/>
         <TextBlock Grid.Row="3" Grid.Column="0" Text="Nombre del Estadio" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-        <TextBox x:Name="estadioEquipo" PreviewTextInput="TextBoxChar" Grid.Row="3" Grid.Column="1" Margin="10,20,10,10"/>
+        <TextBox x:Name="estadioEquipo" PreviewTextInput="TextBoxChar" Grid.Row="3" Grid.Column="1"/>
         <TextBlock Grid.Row="4" Grid.Column="0" Text="Escudo del Equipo" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         <Button Content="Seleccionar archivo..." Template="{StaticResource templateButton}" Grid.Row="4" Grid.Column="1" Margin="5,10,5,10" Click="SeleccionarArchivo_Click"/>
         <Button Content="Borrar campos" Template="{StaticResource templateButton}" Grid.Row="5" Grid.Column="0" Click="BorrarCampos_Click" />

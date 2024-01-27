@@ -6,16 +6,23 @@
       xmlns:local="clr-namespace:GestorLigaEV2"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="Mostrar Jugadores">
+      Title="Gestión de Jugadores" Background="White">
 
     <!-- StackPanel que nos proporciona un DataGrid editable según lo visto en Clase -->
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="0.1*"/>
+        </Grid.RowDefinitions>
         <!-- El DataGrid generará sólamente los datos que existan y se podrán editar sobre ellos -->
-        <DataGrid x:Name="listaJugadores" AutoGenerateColumns="False" CanUserAddRows="False">
+        <TextBlock Grid.Row="0" Text="Edita los campos correspondientes o elimina el jugador con el botón"/>
+
+        <DataGrid Grid.Row="1"  x:Name="listaJugadores" AutoGenerateColumns="False" HeadersVisibility="Column" CanUserAddRows="False">
             <DataGrid.Columns>
                 <!-- Para los campos típicos ponemos un DataGridTextColumn con el Header y el Binding -->
                 <DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}" Width="1*"/>
-                <DataGridTextColumn Header="Apellidos" Binding="{Binding Apellidos}" Width="1.5*" CanUserResize="True"/>
+                <DataGridTextColumn Header="Apellidos" Binding="{Binding Apellidos}" Width="1.5*"/>
                 <DataGridTextColumn Header="Apodo" Binding="{Binding Apodo}" Width="1*"/>
                 <DataGridTextColumn Header="Edad" Binding="{Binding Edad}" Width="0.5*"/>
                 <DataGridTextColumn Header="Dorsal" Binding="{Binding Dorsal}" Width="0.5*"/>
@@ -32,16 +39,20 @@
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-                <!-- En caso del Escudo, al ser una imagen hacemos un Template-->
+                <!-- En caso de la fotografía al ser una imagen hacemos un Template-->
                 <DataGridTemplateColumn Header="Imagen" Width="1*">
-                    <!-- Mostramos el Escudo -->
+                    <!-- Mostramos la fotografía -->
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Image Source="{Binding Imagen}" Width="50" Height="50"/>
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="{Binding Imagen}" Width="50" Height="50"/>
+                                <Button Content="Editar" Click="botonCambiarImagen_Click"/>
+                            </StackPanel>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
+        <Button Grid.Row="2" x:Name="botonEliminar" Content="Eliminar jugador seleccionado" Click="botonEliminar_Click"/>
     </Grid>
 </Page>

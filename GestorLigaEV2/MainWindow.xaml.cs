@@ -1,18 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+
 
 namespace GestorLigaEV2
 {
@@ -75,8 +65,20 @@ namespace GestorLigaEV2
             coleccionJugadores.Add(thierryHenry);
             coleccionJugadores.Add(juvenalEdjogo);
 
-
+            // Establecemos el contexto del DataContext
             DataContext = this;
+
+            // Cerramos la vista que haya abierta:
+            CerrarVistaActual();
+
+            // Creamos la nueva vista objetivo:
+            MostrarEquipos vistaMuestraEquipos = new MostrarEquipos(coleccionEquipos);
+
+            // Asignamos la nueva vista a nuestro contenedor:
+            contenedorPaginas.Content = vistaMuestraEquipos;
+
+            // Actualizamos la variable de vista actual:
+            vistaActual = vistaMuestraEquipos;
 
         }
 
@@ -141,7 +143,7 @@ namespace GestorLigaEV2
             // Cerramos la vista que haya abierta:
             CerrarVistaActual();
 
-            // Creamos al nueva vista objetivo:
+            // Creamos la nueva vista objetivo:
             MostrarEquipos vistaMuestraEquipos = new MostrarEquipos(coleccionEquipos);
 
             // Asignamos la nueva vista a nuestro contenedor:
@@ -155,22 +157,25 @@ namespace GestorLigaEV2
         // Click en la autoría:
         private void acercaDe_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Autor: Paco Armenta López para la asignatura Desarrollo de Interfaces", "Autoría", MessageBoxButton.OK, MessageBoxImage.Information);
+            // Sencillo MessageBox de autoría:
+            MessageBox.Show("Paco Armenta López para la asignatura Desarrollo de Interfaces", "Autoría", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
         // Método para cerrar la vista actual y ahorrar recursos:
         private void CerrarVistaActual()
         {
-            // Comprobamos que la vista no sea null:
+            // Comprobamos que la vista no sea nula:
             if (vistaActual != null)
             {
                 // Si es desechable...
                 if (vistaActual is IDisposable disposable)
                 {
-                    // La desecha.
+                    // La desecha (cierra):
                     disposable.Dispose();
                 }
             }
         }
+
+
     }
 }
