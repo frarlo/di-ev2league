@@ -44,15 +44,28 @@ namespace GestorLigaEV2
             // Comprobamos si hay algún equipo seleccionado:
             if(listaEquipos.SelectedItem != null)
             {
-                // Obtenemos el equipo seleccionado de nuestro DataGrid:
-                Equipo equipoSeleccionado = (Equipo)listaEquipos.SelectedItem;
 
-                // Lo eliminamos:
-                ColeccionEquipos.Remove(equipoSeleccionado);
+                // Creamos un result de la MessageBox avisando del borrado:
+                MessageBoxResult result = MessageBox.Show("Borrar el equipo es irreversible. ¿Seguro que quiere hacerlo?", "Operación irreversible", MessageBoxButton.YesNo, MessageBoxImage.Information);
 
-                // Actualizamos la vista:
-                listaEquipos.Items.Refresh();
+                if (result == MessageBoxResult.Yes)
+                {
+                    // Obtenemos el equipo seleccionado de nuestro DataGrid:
+                    Equipo equipoSeleccionado = (Equipo)listaEquipos.SelectedItem;
+
+                    // Lo eliminamos:
+                    ColeccionEquipos.Remove(equipoSeleccionado);
+
+                    // Actualizamos la vista:
+                    listaEquipos.Items.Refresh();
+                }
+
+                // Si el usuario hace clic en "No" no hacemos nada.
+
             }
+
+            // Si no hay ningún equipo seleccionado el botón no hace nada.
+
         }
 
         // Botón que recoge la edición del escudo

@@ -19,7 +19,9 @@
         <TextBlock Grid.Row="0" Text="Edita los campos correspondientes o elimina el jugador con el botón"/>
 
         <DataGrid Grid.Row="1"  x:Name="listaJugadores" AutoGenerateColumns="False" HeadersVisibility="Column" CanUserAddRows="False">
+            
             <DataGrid.Columns>
+                
                 <!-- Para los campos típicos ponemos un DataGridTextColumn con el Header y el Binding -->
                 <DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}" Width="1*"/>
                 <DataGridTextColumn Header="Apellidos" Binding="{Binding Apellidos}" Width="1.5*"/>
@@ -27,32 +29,54 @@
                 <DataGridTextColumn Header="Edad" Binding="{Binding Edad}" Width="0.5*"/>
                 <DataGridTextColumn Header="Dorsal" Binding="{Binding Dorsal}" Width="0.5*"/>
                 <DataGridTextColumn Header="Nacionalidad" Binding="{Binding Nacionalidad}" Width="1*"/>
+                
                 <!-- El equipo no puede ser directamente editable en texto, hay que seleccionarlo-->
                 <DataGridTemplateColumn Header="Equipo" Width="2*">
+                    
                     <DataGridTemplateColumn.CellTemplate>
+                        
                         <DataTemplate>
+                            
                             <!-- Asignamos un ComboBox donde el usuario podrá seleccionar el Equipo entre los existentes-->
+                            
                             <ComboBox ItemsSource="{Binding DataContext.coleccionEquipos, RelativeSource={RelativeSource AncestorType={x:Type Page}}}"
                                       DisplayMemberPath="Nombre"
                                       SelectedItem="{Binding EquipoSel, Mode=TwoWay}"/>
                             <!-- TwoWay para que se actualicen mutuamente -->
+                            
                         </DataTemplate>
+                        
                     </DataGridTemplateColumn.CellTemplate>
+                    
                 </DataGridTemplateColumn>
+                
                 <!-- En caso de la fotografía al ser una imagen hacemos un Template-->
                 <DataGridTemplateColumn Header="Imagen" Width="1*">
+                    
                     <!-- Mostramos la fotografía -->
                     <DataGridTemplateColumn.CellTemplate>
+                        
                         <DataTemplate>
+                            
                             <StackPanel Orientation="Horizontal">
+                                
                                 <Image Source="{Binding Imagen}" Width="50" Height="50"/>
                                 <Button Content="Editar" Click="botonCambiarImagen_Click"/>
+                                
                             </StackPanel>
+                            
                         </DataTemplate>
+                        
                     </DataGridTemplateColumn.CellTemplate>
+                    
                 </DataGridTemplateColumn>
+                
             </DataGrid.Columns>
+            
         </DataGrid>
-        <Button Grid.Row="2" x:Name="botonEliminar" Content="Eliminar jugador seleccionado" Click="botonEliminar_Click"/>
+        
+        <Button Grid.Row="2" Template="{StaticResource templateEliminar}" x:Name="botonEliminar" Content="Eliminar jugador seleccionado" Click="botonEliminar_Click"/>
+    
     </Grid>
+    
 </Page>

@@ -8,36 +8,53 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Mostrar Equipos" >
 
-    
-    <!-- StackPanel que nos proporciona un DataGrid editable según lo visto en Clase -->
     <Grid>
+        
         <Grid.RowDefinitions>
             <RowDefinition Height="0.1*"/>
             <RowDefinition Height="1*"/>
             <RowDefinition Height="0.1*"/>
         </Grid.RowDefinitions>
-        <!-- El DataGrid generará sólamente los datos que existan y se podrán editar sobre ellos -->
+
         <TextBlock Grid.Row="0" Text="Edita los campos correspondientes o elimina el equipo con el botón"/>
+        
+        <!-- El DataGrid generará sólamente los datos que existan y se podrán editar sobre ellos -->
         <DataGrid Grid.Row="1" x:Name="listaEquipos" AutoGenerateColumns="False" HeadersVisibility="Column" CanUserAddRows="False" Background="White">
+           
             <DataGrid.Columns>
                 <!-- Para los campos típicos ponemos un DataGridTextColumn con el Header y el Binding -->
                 <DataGridTextColumn Header="Equipo" Binding="{Binding Nombre}" Width="2*"/>
                 <DataGridTextColumn Header="Fundación" Binding="{Binding Fundacion}" Width="1*"/>
                 <DataGridTextColumn Header="Estadio" Binding="{Binding Estadio}" Width="2*"/>
+                
                 <!-- En caso del Escudo, al ser una imagen hacemos un Template-->
                 <DataGridTemplateColumn Header="Escudo" Width="2*">
+                    
                     <!-- Mostramos el Escudo -->
                     <DataGridTemplateColumn.CellTemplate>
+                        
                         <DataTemplate>
+                            
+                            <!-- Como queremos que también sea editable hacemos un StackPanel para el escudo y el botón-->
                             <StackPanel Orientation="Horizontal">
+                                
                                 <Image Source="{Binding Escudo}" Width="50" Height="50"/>
                                 <Button Content="Editar" Click="botonCambiarImagen_Click"/>
+                                
                             </StackPanel>
+                            
                         </DataTemplate>
+                        
                     </DataGridTemplateColumn.CellTemplate>
+                    
                 </DataGridTemplateColumn>
+                
             </DataGrid.Columns>
+            
         </DataGrid>
-        <Button Grid.Row="2" x:Name="botonEliminar" Content="Eliminar equipo seleccionado" Click="botonEliminar_Click"/>
+        
+        <Button Grid.Row="2" Template="{StaticResource templateEliminar}" x:Name="botonEliminar" Content="Eliminar equipo seleccionado" Click="botonEliminar_Click"/>
+    
     </Grid>
+    
 </Page>

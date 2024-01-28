@@ -57,15 +57,29 @@ namespace GestorLigaEV2
             // Comprobamos si hay algún jugador seleccionado:
             if(listaJugadores.SelectedItem != null)
             {
-                // Hay alguno, así que sacamos el jugador seleccionado:
-                Jugador jugadorSeleccionado = (Jugador)listaJugadores.SelectedItem;
 
-                // Lo eliminamos:
-                coleccionJugadores.Remove(jugadorSeleccionado);
+                // Creamos un result de la MessageBox avisando del borrado:
+                MessageBoxResult result = MessageBox.Show("Borrar el jugador es irreversible. ¿Seguro que quiere hacerlo?", "Operación irreversible", MessageBoxButton.YesNo, MessageBoxImage.Information);
 
-                // Refrescamos la vista:
-                listaJugadores.Items.Refresh();
+                // Si el usuario dice que sí:
+                if (result == MessageBoxResult.Yes)
+                {
+                    // Sacamos el jugador seleccionado:
+                    Jugador jugadorSeleccionado = (Jugador)listaJugadores.SelectedItem;
+
+                    // Lo eliminamos:
+                    coleccionJugadores.Remove(jugadorSeleccionado);
+
+                    // Refrescamos la vista:
+                    listaJugadores.Items.Refresh();
+                }
+
+                // No hace falta que recogamos el "No" ya que no hace nada.
+
             }
+
+            // Si no hay ningún jugador seleccionado el botón no hace nada.
+
         }
 
         // Botón que recoge la edición de la imagen:

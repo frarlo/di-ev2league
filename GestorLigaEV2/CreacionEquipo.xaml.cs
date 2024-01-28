@@ -28,24 +28,25 @@ namespace GestorLigaEV2
         // Declaramos aquí la ruta de la imagen:
         string rutaArchivoSeleccionado;
 
+        // El método que construye la vista recoge como parámetro nuestra lista de equipos:
         public CreacionEquipo(ObservableCollection<Equipo> coleccionEquipos)
         {
             InitializeComponent();
 
-
             // Asignamos la lista recibida a la local:
             this.coleccionEquipos = coleccionEquipos;
-
             DataContext = this;
 
         }
 
+        // Método que recoge el Click para borrar todos los campos introducidos:
         private void BorrarCampos_Click(object sender, RoutedEventArgs e)
         {
             // Invocamos el método para despejar todos los datos introducidos:
             BorrarCampos();
         }
 
+        // Método que vacía los TextBox:
         public void BorrarCampos()
         {
             // Despejamos todos los datos introducidos
@@ -55,6 +56,7 @@ namespace GestorLigaEV2
             rutaArchivoSeleccionado = null;
         }
 
+        // Método que recoge el Click de crear equipo:
         private void CrearEquipo_Click(object sender, RoutedEventArgs e)
         {
             // Si el usuario ha introducido todos los datos y la imagen...
@@ -77,8 +79,8 @@ namespace GestorLigaEV2
                 coleccionEquipos.Add(nuevoEquipo);
 
                 // Avisamos:
-                MessageBox.Show("Equipo creado y añadido a la colección.");
-
+                MessageBox.Show("El equipo se ha creado y añadido a la colección", "Operación realizada", MessageBoxButton.OK, MessageBoxImage.Information);
+                
                 // Despejamos los campos:
                 BorrarCampos();
             }
@@ -86,7 +88,7 @@ namespace GestorLigaEV2
             else
             {
                 // Diálogo para informarle:
-                MessageBox.Show("No has introducido todos los datos necesarios...");
+                MessageBox.Show("El equipo no se ha creado, faltan datos.", "Operación no realizada", MessageBoxButton.OK, MessageBoxImage.Error);
             }
 
         }

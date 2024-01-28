@@ -24,11 +24,10 @@ namespace GestorLigaEV2
 
         // Declaramos aquí la ruta de la imagen:
         string rutaArchivoSeleccionado;
+
         public CreacionJugador(ObservableCollection<Jugador> coleccionJugadores, ObservableCollection<Equipo> coleccionEquipos)
         {
             InitializeComponent();
-            InitializeComponent();
-
 
             // Asignamos las listas recibidas a la local:
             this.coleccionJugadores = coleccionJugadores;
@@ -110,7 +109,7 @@ namespace GestorLigaEV2
                 coleccionJugadores.Add(nuevoJugador);
 
                 // Avisamos:
-                MessageBox.Show("Jugador creado y añadido a la colección.");
+                MessageBox.Show("El jugador se ha creado y añadido a la colección", "Operación realizada", MessageBoxButton.OK, MessageBoxImage.Information);
 
                 // Despejamos los campos:
                 BorrarCampos();
@@ -135,12 +134,12 @@ namespace GestorLigaEV2
 
                 if (edad < 18 || edad > 99)
                 {
-                    MessageBox.Show("El jugador tiene que ser mayor de edad o no estar con un pie en la tumba...");
+                    MessageBox.Show("El jugador tiene que ser mayor de edad o no tener un pie en la tumba...", "Edad incorrecta", MessageBoxButton.OK, MessageBoxImage.Error);
                     return false;
                 }
                 else if (dorsal < 1 || dorsal > 99)
                 {
-                    MessageBox.Show("Un dorsal debe ser un número entre 1 y 99 (incluidos)...");
+                    MessageBox.Show("Un dorsal debe ser un número entre 1 y 99 (incluidos)...", "Dorsal incorrecto", MessageBoxButton.OK, MessageBoxImage.Error);
                     return false;
                 }
                 else
@@ -150,7 +149,7 @@ namespace GestorLigaEV2
             }
             else
             {
-                MessageBox.Show("Faltan campos por introducir.");
+                MessageBox.Show("El jugador no se ha creado, faltan datos.", "Operación no realizada", MessageBoxButton.OK, MessageBoxImage.Error);
                 return false;
             }
         }

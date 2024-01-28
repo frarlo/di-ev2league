@@ -68,10 +68,7 @@ namespace GestorLigaEV2
             // Establecemos el contexto del DataContext
             DataContext = this;
 
-            // Cerramos la vista que haya abierta:
-            CerrarVistaActual();
-
-            // Creamos la nueva vista objetivo:
+            // Creamos ahora una vista de equipos para mostrarla de forma inicial:
             MostrarEquipos vistaMuestraEquipos = new MostrarEquipos(coleccionEquipos);
 
             // Asignamos la nueva vista a nuestro contenedor:

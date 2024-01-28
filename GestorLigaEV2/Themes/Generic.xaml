@@ -3,11 +3,15 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="clr-namespace:GestorLigaEV2">
 
+    <!-- Definimos aqui las caracteristicas del CustomControlBoton, muy parecidas a las realizadas en
+    App.xaml para que vaya en consonancia con el aspecto general de la aplicacion -->
 
+    <!-- El estilo coge como target nuestro control personalizado basado en el boton -->
     <Style TargetType="{x:Type local:CustomControlBoton}" BasedOn="{StaticResource {x:Type Button}}">
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type local:CustomControlBoton}">
+                    <!-- Personalizamos bordes, fondo y contenido de texto -->
                     <Border x:Name="customBorder" Background="#4010FF"
                         BorderBrush="#0e3860"
                         BorderThickness="1"
@@ -18,9 +22,10 @@
                            HorizontalAlignment="Center"
                            VerticalAlignment="Center"/>
                     </Border>
-
+                    <!-- Al igual que en App.xaml, establecemos un trigger al hacer hover -->
                     <ControlTemplate.Triggers>
-                        <!-- Cuando el raton esta encima -->
+                        <!-- La propiedad IsMouseOver es la que nos dice si el raton esta encima para detectar
+                        el hover-->
                         <Trigger Property="IsMouseOver" Value="True">
                             <Setter TargetName="customBorder" Property="BorderThickness" Value="3" />
                             <Setter TargetName="customBorder" Property="BorderBrush" Value="#00D83B"/>

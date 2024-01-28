@@ -11,5 +11,4 @@
         <TextBlock Text="Introduce los datos del Equipo a crear" HorizontalAlignment="Center" VerticalAlignment="Center"
                FontSize="20"/>
     </StackPanel>
-
 </UserControl>

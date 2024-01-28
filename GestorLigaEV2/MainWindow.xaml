@@ -9,7 +9,7 @@
 
     <!-- Contenedor principal de la aplicación-->
     <Grid>
-        <!-- Definición de las filas del Grid -->
+        
         <Grid.RowDefinitions>
             <RowDefinition Height="2*"/>
             <RowDefinition Height="2*"/>
@@ -18,23 +18,33 @@
             <RowDefinition Height="2*"/>
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
-        <!-- Definición de las columnas del Grid -->
+
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="20*"/>
             <ColumnDefinition Width="80*"/>
         </Grid.ColumnDefinitions>
-        <!-- StackPanel para mostrar los botones de funcionalidad de forma horizontal -->
+        
         <TextBlock Text="Gestor de Equipos" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Microsoft YaHei UI" FontSize="16" />
+        
         <Button x:Name="crearJugador" Template="{StaticResource templateButton}" Click="crearJugador_Click" Content="Añadir un jugador" Grid.Row="1" Grid.Column="0"/>
+        
         <Button x:Name="crearEquipo" Template="{StaticResource templateButton}" Click="crearEquipo_Click" Content="Añadir un equipo" Grid.Row="2" Grid.Column="0"/>
+        
         <Button x:Name="mostrarJugadores" Template="{StaticResource templateButton}" Click="mostrarJugadores_Click" Content="Gestionar jugadores" Grid.Row="3" Grid.Column="0"/>
+        
         <Button x:Name="mostrarEquipos" Template="{StaticResource templateButton}" Click="mostrarEquipos_Click" Content="Gestionar equipos" Grid.Row="4" Grid.Column="0"/>
+        
         <Button x:Name="acercaDe" Template="{StaticResource templateButton}" Click="acercaDe_Click" Content="Autoría" Grid.Row="5" Grid.Column="0"/>
 
         <!-- Contenido dinámico según la página seleccionada por el usuario -->
         <UserControl Grid.Row="0" Grid.Column="1" Grid.RowSpan="6">
-            <!-- Navegación entre páginas aquí -->
+            
+            <!-- Navegación entre páginas aquí. También escondemos la UI del Frame que hace que la vista quede fea, se tuvo que consultar:
+            https://stackoverflow.com/a/14156372/14441036 -->
             <Frame Name="contenedorPaginas" Margin="5" NavigationUIVisibility="Hidden"/>
+            
         </UserControl>
+        
     </Grid>
+    
 </Window>
