@@ -4,6 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:GestorLigaEV2"
+      xmlns:control = "clr-namespace:GestorLigaEV2"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Creación de Jugadores" >
@@ -25,7 +26,7 @@
             <RowDefinition Height="1*"/>
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
-        <TextBlock Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" Text="Introduce los datos del jugador a crear" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
+        <local:ControlTextBlock2 Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0"/>
         <TextBlock Grid.Row="1" Grid.Column="0" Text="Nombre del Jugador" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         <TextBox x:Name="nombreJugador" PreviewTextInput="TextBoxChar" Grid.Row="1" Grid.Column="1"/>
         <TextBlock Grid.Row="2" Grid.Column="0" Text="Apellidos de Jugador" HorizontalAlignment="Center" VerticalAlignment="Center"/>
@@ -41,9 +42,9 @@
         <TextBlock Grid.Row="7" Grid.Column="0" Text="Equipo del Jugador" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         <ComboBox x:Name="equipoJugador" Grid.Row="7" Grid.Column="1" ItemsSource="{Binding coleccionEquipos}" DisplayMemberPath="Nombre" />
         <TextBlock Grid.Row="8" Grid.Column="0" Text="Imagen del Jugador" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-        <Button Content="Seleccionar archivo..." Template="{StaticResource templateButton}" Grid.Row="8" Grid.Column="1" Margin="5,10,5,10" Click="SeleccionarArchivo_Click"/>
+        <Button Content="Seleccionar archivo..." Template="{StaticResource templateButton}" Grid.Row="8" Grid.Column="1" Margin="10,10,10,10" Click="SeleccionarArchivo_Click"/>
         <Button Content="Borrar campos" Template="{StaticResource templateButton}" Grid.Row="9" Grid.Column="0" Click="BorrarCampos_Click" />
-        <Button Content="Crear jugador" Template="{StaticResource templateButton}" Grid.Row="9" Grid.Column="1" Click="CrearJugador_Click" />
+        <control:CustomControlBoton x:Name="CustomControlBoton" Content="Crear Jugador" Grid.Row="9" Grid.Column="1" Click="CrearJugador_Click" Margin="10,10,10,10"/>
 
     </Grid>
 </Page>

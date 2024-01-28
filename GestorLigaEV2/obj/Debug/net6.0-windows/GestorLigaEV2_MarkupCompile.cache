@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 C:\ProyectosVisualStudioCSHARP\GestorLigaEV2\GestorLigaEV2\App.xaml
-5-999813426
+81242102849
 
-9-51903371
+12-1034811193
 194258113564
-CreacionEquipo.xaml;CreacionJugador.xaml;MainWindow.xaml;MostrarEquipos.xaml;MostrarJugadores.xaml;
+ControlTextBlock.xaml;ControlTextBlock2.xaml;CreacionEquipo.xaml;CreacionJugador.xaml;MainWindow.xaml;MostrarEquipos.xaml;MostrarJugadores.xaml;Themes\Generic.xaml;
 
 False
 

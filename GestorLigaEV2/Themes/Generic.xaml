@@ -1,0 +1,33 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:GestorLigaEV2">
+
+
+    <Style TargetType="{x:Type local:CustomControlBoton}" BasedOn="{StaticResource {x:Type Button}}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type local:CustomControlBoton}">
+                    <Border x:Name="customBorder" Background="#4010FF"
+                        BorderBrush="#0e3860"
+                        BorderThickness="1"
+                        CornerRadius="10">
+                        <TextBlock Text="{TemplateBinding Content}"
+                           FontFamily="Roboto"
+                           Foreground="NavajoWhite"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"/>
+                    </Border>
+
+                    <ControlTemplate.Triggers>
+                        <!-- Cuando el raton esta encima -->
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="customBorder" Property="BorderThickness" Value="3" />
+                            <Setter TargetName="customBorder" Property="BorderBrush" Value="#00D83B"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

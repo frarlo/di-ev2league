@@ -28,3 +28,9 @@ C:\ProyectosVisualStudioCSHARP\GestorLigaEV2\GestorLigaEV2\obj\Debug\net6.0-wind
 C:\ProyectosVisualStudioCSHARP\GestorLigaEV2\GestorLigaEV2\obj\Debug\net6.0-windows\GestorLigaEV2.genruntimeconfig.cache
 C:\ProyectosVisualStudioCSHARP\GestorLigaEV2\GestorLigaEV2\obj\Debug\net6.0-windows\ref\GestorLigaEV2.dll
 C:\ProyectosVisualStudioCSHARP\GestorLigaEV2\GestorLigaEV2\obj\Debug\net6.0-windows\GestorLigaEV2.sourcelink.json
+C:\ProyectosVisualStudioCSHARP\GestorLigaEV2\GestorLigaEV2\obj\Debug\net6.0-windows\GeneratedInternalTypeHelper.g.cs
+C:\ProyectosVisualStudioCSHARP\GestorLigaEV2\GestorLigaEV2\obj\Debug\net6.0-windows\ControlTextBlock.g.cs
+C:\ProyectosVisualStudioCSHARP\GestorLigaEV2\GestorLigaEV2\obj\Debug\net6.0-windows\ControlTextBlock.baml
+C:\ProyectosVisualStudioCSHARP\GestorLigaEV2\GestorLigaEV2\obj\Debug\net6.0-windows\ControlTextBlock2.g.cs
+C:\ProyectosVisualStudioCSHARP\GestorLigaEV2\GestorLigaEV2\obj\Debug\net6.0-windows\ControlTextBlock2.baml
+C:\ProyectosVisualStudioCSHARP\GestorLigaEV2\GestorLigaEV2\obj\Debug\net6.0-windows\Themes\Generic.baml

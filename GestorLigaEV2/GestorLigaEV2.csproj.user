@@ -7,6 +7,12 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="ControlTextBlock.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="ControlTextBlock2.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="CreacionEquipo.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -21,6 +27,12 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="ControlTextBlock.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ControlTextBlock2.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="CreacionEquipo.xaml">
       <SubType>Designer</SubType>
     </Page>
@@ -34,6 +46,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MostrarJugadores.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Themes\Generic.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

@@ -17,9 +17,7 @@ using System.Windows.Shapes;
 
 namespace GestorLigaEV2
 {
-    /// <summary>
-    /// Lógica de interacción para MostrarEquipos.xaml
-    /// </summary>
+
     public partial class MostrarEquipos : Page
     {
         // Declaramos una colección observable de equipos:
@@ -32,16 +30,12 @@ namespace GestorLigaEV2
         {
             InitializeComponent();
 
-
-
             // Asignamos la lista recibida a la local:
             this.ColeccionEquipos = coleccionEquipos;
-
             DataContext = this;
 
+            // Llenamos el DataGrid con nuestra colección observable:
             listaEquipos.ItemsSource = coleccionEquipos;
-
-           
         }
 
         // Botón para recoger el click de eliminar:
